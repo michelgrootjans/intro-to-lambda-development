@@ -1,0 +1,19 @@
+{
+  "name": "using-events",
+  "version": "2.0.0",
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "scripts": {
+    "create": "claudia create --region eu-central-1 --handler lambda.main",
+    "update": "claudia update"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.52.0",
+    "claudia-api-builder": "^2.4.2"
+  },
+  "devDependencies": {
+    "claudia": "^2.12.1"
+  }
+}
