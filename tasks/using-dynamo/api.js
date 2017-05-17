@@ -21,7 +21,7 @@ api.post('/user', function (request) {
 
 api.get('/users', function(request) {
 	return dynamoDb.scan(
-		{TableName: 'dynamo-test'},
+		{TableName: request.env.userTable},
 	function(err, data) {
 		return data;
 	}).promise();
@@ -29,8 +29,21 @@ api.get('/users', function(request) {
 
 api.get('/users/{id}', function(request) {
 	return dynamoDb.get({
-		TableName: 'dynamo-test',
+		TableName: request.env.userTable,
 		Key: { "userid": request.pathParams.id}
+	}, function(err, data) {
+		return data;
+	}).promise();
+});
+
+api.get('/debug', function(request) {
+	return request;
+});
+
+api.get('/users/search/{q}', function(request) {
+	return dynamoDb.query({
+		TableName: request.env.userTable,
+		KeyConditionExpression: '...'
 	}, function(err, data) {
 		return data;
 	}).promise();
