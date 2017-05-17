@@ -19,3 +19,8 @@ api.post('/user', function (request) {
 }, { success: 201 }); // Return HTTP status 201 - Created when successful
 
 
+api.get('/users', function(request) {
+	return dynamoDb.scan({TableName: 'dynamo-test'}, function(err, data) {
+		return data;
+	}).promise();
+});

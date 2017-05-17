@@ -6,7 +6,7 @@
     "*.js"
   ],
   "scripts": {
-    "create": "claudia create --region us-east-1 --api-module api --policies policies",
+    "create": "claudia create --region eu-central-1 --api-module api --policies policies",
     "update": "claudia update"
   },
   "dependencies": {
