@@ -11,3 +11,6 @@ curl https://vl1ua4xwdf.execute-api.eu-central-1.amazonaws.com/latest/users
 
 # Create new user
 curl -H "Content-Type: application/json" -X POST --data @example.json https://vl1ua4xwdf.execute-api.eu-central-1.amazonaws.com/latest/user
+
+# Update existing user
+curl -H "Content-Type: application/json" -X PUT https://vl1ua4xwdf.execute-api.eu-central-1.amazonaws.com/latest/users/123/NewName

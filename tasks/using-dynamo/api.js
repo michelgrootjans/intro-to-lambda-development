@@ -36,6 +36,19 @@ api.get('/users/{id}', function(request) {
 	}).promise();
 });
 
+api.put('/users/{id}/{name}', function(request) {
+	return dynamoDb.update({
+		TableName: request.env.userTable,
+		Key: { "userid": request.pathParams.id},
+		UpdateExpression: "set name=:n",
+		ExpressionAttributeValues:{
+			":n": request.pathParams.name
+		}
+	}, function(err, data) {
+		return data;
+	}).promise();
+});
+
 api.get('/debug', function(request) {
 	return request;
 });
