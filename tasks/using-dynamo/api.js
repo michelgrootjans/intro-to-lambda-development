@@ -50,6 +50,7 @@ api.put('/users/{id}/{name}', function(request) {
 });
 
 api.get('/debug', function(request) {
+	console.log(request);
 	return request;
 });
 
