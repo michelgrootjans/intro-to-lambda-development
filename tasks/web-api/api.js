@@ -16,3 +16,8 @@ api.get('/greet/{name}', function(request) {
 	const name = request.pathParams.name;
 	return 'hello again, ' + name;
 });
+
+api.get('/customresponse',
+	function(request) { return '<h1>hello</h1>'; },
+	{success: { contentType: 'text/html' }}
+);
