@@ -20,7 +20,18 @@ api.post('/user', function (request) {
 
 
 api.get('/users', function(request) {
-	return dynamoDb.scan({TableName: 'dynamo-test'}, function(err, data) {
+	return dynamoDb.scan(
+		{TableName: 'dynamo-test'},
+	function(err, data) {
+		return data;
+	}).promise();
+});
+
+api.get('/users/{id}', function(request) {
+	return dynamoDb.get({
+		TableName: 'dynamo-test',
+		Key: { "userid": request.pathParams.id}
+	}, function(err, data) {
 		return data;
 	}).promise();
 });
