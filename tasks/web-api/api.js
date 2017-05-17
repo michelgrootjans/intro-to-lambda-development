@@ -18,6 +18,14 @@ api.get('/greet/{name}', function(request) {
 });
 
 api.get('/customresponse',
-	function(request) { return '<h1>hello</h1>'; },
-	{success: { contentType: 'text/html' }}
+	function(request) {
+		// throw new Exception();
+		console.log('log this');
+		return '<h1>hello</h1>';
+	},
+	{
+		success: { contentType: 'text/html' },
+		error: { code: 404 }
+
+	}
 );
