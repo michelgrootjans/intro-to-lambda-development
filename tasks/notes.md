@@ -8,3 +8,8 @@ Print all logs:
 `aws lambda list-functions --query Functions[].FunctionName --output table`
 
 `aws apigateway get-rest-apis --query 'items[?name==`web-api`].[name, id]' --region us-east-1 --output table`
+
+`aws lambda get-function --region us-east-1 --function-name web-api`
+
+download latest version of function as a zip
+`curl $(aws lambda get-function --region us-east-1 --function-name web-api --query Code.Location --output text) > lambda.zip`
