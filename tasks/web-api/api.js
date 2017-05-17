@@ -20,7 +20,7 @@ api.get('/greet/{name}', function(request) {
 api.get('/customresponse',
 	function(request) {
 		// throw new Exception();
-		console.log('log this');
+		console.log(request);
 		return '<h1>hello</h1>';
 	},
 	{
