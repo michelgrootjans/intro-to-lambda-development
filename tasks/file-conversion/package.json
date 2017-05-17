@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "create": "claudia create --region $npm_package_config_region --version dev --handler lambda.main",
-    "update": "claudia update",
+    "update": "claudia update --version dev",
     "release": "claudia set-version --version production",
     "wire-dev": "claudia add-s3-event-source --version dev --bucket $npm_package_config_buckets_dev --prefix upload/",
     "wire-prod":  "claudia add-s3-event-source --version production --bucket $npm_package_config_buckets_production --prefix upload/"
@@ -12,10 +12,10 @@
   "keywords": [],
   "author": "",
   "config": {
-    "region": "us-east-1",
+    "region": "eu-central-1",
     "buckets": {
-      "dev": "test-buckets-dev",
-      "production": "buckets-production"
+      "dev": "cocacolalightdev",
+      "production": "cocacolalightprod"
     }
   },
   "devDependencies": {
